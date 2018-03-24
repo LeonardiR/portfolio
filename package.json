@@ -1,0 +1,21 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "This is my portfolio",
+  "scripts": {
+    "css": "node-sass --output-style compressed --include-path scss scss/_main.scss style.css",
+    "js": "uglifyjs js/*.js --compress --mangle > app.min.js",
+    "watchCss": "nodemon -e scss -x \"npm run css\"",
+    "watchJs": "nodemon --watch js/*.js -e js -x \"npm run js\"",
+    "serve": "browser-sync start -s --files 'portafolio/**/*.(js|css|html)' --port 8080",
+    "start": "npm run watchCss & npm run watchJs & npm run serve"
+  },
+  "author": "Regulo Leonardi",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.23.6",
+    "node-sass": "^4.8.3",
+    "nodemon": "^1.17.2",
+    "uglify-js": "^3.3.16"
+  }
+}
